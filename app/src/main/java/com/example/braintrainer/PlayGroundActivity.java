@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -134,7 +136,13 @@ public class PlayGroundActivity extends AppCompatActivity {
         gridLayoutOptions = findViewById(R.id.gridLayoutOptionsContainer);
         options = gridLayoutOptions.getTouchables();
         buttonLeave.setOnClickListener( view -> {
-            exitGameSession();
+          new MaterialAlertDialogBuilder(PlayGroundActivity.this)
+                  .setTitle(getResources().getString(R.string.dialog_title))
+                  .setMessage(R.string.round_exit_confirmation_msg)
+                  .setNeutralButton(getResources().getString(R.string.cancel), (dialogInterface, i) -> {
+                     dialogInterface.cancel();
+                  })
+                  .setPositiveButton("Yes", (dialogInterface, i) -> exitGameSession()).show();
         });
     }
 

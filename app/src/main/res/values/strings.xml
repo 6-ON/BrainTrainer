@@ -12,4 +12,7 @@
     <string name="attempts">Attempts :</string>
     <string name="problem_message">A + B = ?</string>
     <string name="toast_user_didnt_pick">Please Pick an Answer</string>
+    <string name="round_exit_confirmation_msg">Do you want to exit this round ?</string>
+    <string name="dialog_title">Confirmation</string>
+    <string name="cancel">Cancel</string>
 </resources>
