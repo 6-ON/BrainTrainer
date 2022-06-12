@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlayGroundActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewProblem"
+            style="@style/HighScoreCardStyle"
+            android:layout_width="match_parent"
+            android:layout_height="95dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewProblem"
+                    style="@style/TextAppearance.AppCompat.Large.Inverse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/problem_message" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/timeProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cardViewProblem"
+            android:layout_marginHorizontal="5dp"
+            android:progress="100"
+
+            android:theme="@style/timeIndicator"
+            app:trackCornerRadius="2dp"
+
+            />
+    </RelativeLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/small_spacing" />
+
+    <GridLayout
+        android:id="@+id/gridLayoutOptionsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:useDefaultMargins="true">
+
+        <com.google.android.material.card.MaterialCardView
+            android:tag="option1"
+            android:id="@+id/cardViewOption1"
+            style="@style/OptionCardView"
+            
+            >
+
+            <TextView
+                android:id="@+id/textViewOption1"
+                style="@style/OptionTextView" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:tag="option2"
+            android:id="@+id/cardViewOption2"
+            style="@style/OptionCardView">
+
+            <TextView
+                android:id="@+id/textViewOption2"
+                style="@style/OptionTextView" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:tag="option3"
+            android:id="@+id/cardViewOption3"
+            style="@style/OptionCardView">
+
+            <TextView
+                android:id="@+id/textViewOption3"
+                style="@style/OptionTextView" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:tag="option4"
+            android:id="@+id/cardViewOption4"
+            style="@style/OptionCardView">
+
+            <TextView
+                android:id="@+id/textViewOption4"
+                style="@style/OptionTextView" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </GridLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/medium_spacing" />
+
+
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:useDefaultMargins="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="@string/score"/>
+        <TextView
+            android:id="@+id/textViewScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="00"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="@string/attempts"/>
+        <TextView
+            android:id="@+id/textViewAttempts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:text="3"/>
+
+    </GridLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/medium_spacing" />
+
+    <LinearLayout
+        style="@style/LinearLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonSubmitAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_answer"
+            android:theme="@style/MenuPlayButtonStyle" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/small_spacing" />
+
+        <Button
+            android:id="@+id/buttonLeaveRound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/leave"
+            android:theme="@style/MenuQuitButtonStyle" />
+    </LinearLayout>
+
+</LinearLayout>

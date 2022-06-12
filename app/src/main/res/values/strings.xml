@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Brain Trainer</string>
+    <string name="start">Start</string>
+    <string name="highest_score">Highest Score</string>
+    <string name="get_started">Get Started</string>
+    <string name="play">Play</string>
+    <string name="quit">Quit</string>
+    <string name="no_score">0000</string>
+    <string name="submit_answer">Submit Answer</string>
+    <string name="leave">Leave</string>
+    <string name="score">Score :</string>
+    <string name="attempts">Attempts :</string>
+    <string name="problem_message">A + B = ?</string>
+    <string name="toast_user_didnt_pick">Please Pick an Answer</string>
+</resources>

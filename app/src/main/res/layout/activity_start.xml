@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity"
+    android:orientation="vertical"
+    android:background="#E1BEE7"
+    >
+    <ImageView
+        android:layout_weight="1"
+        android:src="@drawable/thinking"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        />
+
+    <Button
+        android:id="@+id/buttonGetStarted"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/get_started"
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/StartButtonStyle"
+        android:layout_marginBottom="@dimen/margin_medium"
+        />
+
+
+
+</LinearLayout>

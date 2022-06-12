@@ -1,0 +1,86 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BrainTrainer" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+    </style>
+
+    <style name="LinearLayoutStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+<!--    start Activity-->
+    <style name="StartButtonStyle" parent="ThemeOverlay.Material3.Button">
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:paddingEnd">@dimen/ButtonPadding</item>
+        <item name="android:paddingStart">@dimen/ButtonPadding</item>
+    </style>
+
+<!--Menu Activity-->
+
+    <style name="HighScoreCardStyle" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/purple_500</item>
+        <item name="android:radius">@dimen/menu_card_radius</item>
+    </style>
+
+
+    <style name="HighScoreTextStyle" parent="TextAppearance.AppCompat.Large">
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/highest_score_text_size</item>
+    </style>
+
+
+    <style name="MenuButtonsStyle" parent="ThemeOverlay.Material3.Button.TonalButton">
+        <item name="android:padding">@dimen/menu_vertical_padding</item>
+        <item name="android:paddingEnd">@dimen/MenuButtonPadding</item>
+        <item name="android:paddingStart">@dimen/MenuButtonPadding</item>
+    </style>
+
+    <style name="MenuQuitButtonStyle" parent="MenuButtonsStyle">
+        <item name="colorSecondaryContainer">@color/red_300</item>
+    </style>
+
+
+    <style name="MenuPlayButtonStyle" parent="MenuButtonsStyle">
+        <item name="colorSecondaryContainer">@color/teal_200</item>
+    </style>
+<!--    Playground Activity-->
+    <style name="timeIndicator">
+        <item name="colorPrimary">@color/teal_200</item>
+        
+    </style>
+    <style name="OptionCardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_height">@dimen/option_card_view_h_w</item>
+        <item name="android:layout_width">@dimen/option_card_view_h_w</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="rippleColor">@color/yellow_200</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="cardBackgroundColor">@color/option_card_view</item>
+    </style>
+
+
+    <style name="OptionTextView" parent="TextAppearance.AppCompat.Large">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item  name="android:textColor">@color/purple_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">Test</item>
+        <item name="backgroundColor">@color/red_300</item>
+    </style>
+
+
+    <color name="yellow_200">#FFE082</color>
+</resources>
