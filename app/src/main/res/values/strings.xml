@@ -15,4 +15,7 @@
     <string name="round_exit_confirmation_msg">Do you want to exit this round ?</string>
     <string name="dialog_title">Confirmation</string>
     <string name="cancel">Cancel</string>
+    <string name="dialog_title_lose">You Lose :(</string>
+    <string name="play_again">Play Again !</string>
+    <string name="dialog_lose_message">Do You Want To Play Again ?</string>
 </resources>

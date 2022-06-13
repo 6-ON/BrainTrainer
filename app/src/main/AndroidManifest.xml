@@ -19,7 +19,6 @@
             android:exported="false" />
         <activity
             android:name=".PlayGroundActivity"
-            android:launchMode="singleInstance"
 
             android:exported="false" />
         <activity

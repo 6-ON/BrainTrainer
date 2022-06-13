@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -25,6 +24,7 @@ import com.google.android.material.textview.MaterialTextView;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -81,7 +81,9 @@ public class PlayGroundActivity extends AppCompatActivity {
         for (View cardAsView : options) {
             MaterialCardView optionCardView = (MaterialCardView) cardAsView;
             optionCardView.setCardBackgroundColor(getColorStateListAlt(R.color.option_card_view));
-            optionCardView.clearFocus();
+            if (optionCardView.isFocused()) {
+                optionCardView.clearFocus();
+            }
             MaterialTextView optionTextView = (MaterialTextView) optionCardView.getChildAt(0);
             int randomFalseAnswerValue = new Random().nextInt(MAX_RAND_NUM);
             // to prevent the same duplicating answer value
@@ -94,11 +96,11 @@ public class PlayGroundActivity extends AppCompatActivity {
     }
 
     private Map.Entry<String, Integer> getRandomProblemWithAnswer() {
-        final char[] operations = {'+', '-', 'x', '/'};
+        final char[] ops = {'+', '-', 'x', '/'};
         Random random = new Random();
         int A = random.nextInt(MAX_RAND_NUM);
         int B = random.nextInt(MAX_RAND_NUM);
-        char op = operations[random.nextInt(operations.length)];
+        char op = ops[random.nextInt(ops.length)];
         int answer = 0;
         switch (op) {
             case '+':
@@ -122,7 +124,7 @@ public class PlayGroundActivity extends AppCompatActivity {
 
         }
 
-        return new AbstractMap.SimpleEntry(String.format("%d %c %d = ?", A, op, B), answer);
+        return new AbstractMap.SimpleEntry(String.format(Locale.ENGLISH,"%d %c %d = ?", A, op, B), answer);
     }
 
 
@@ -135,15 +137,13 @@ public class PlayGroundActivity extends AppCompatActivity {
         timeProgress = findViewById(R.id.timeProgressBar);
         gridLayoutOptions = findViewById(R.id.gridLayoutOptionsContainer);
         options = gridLayoutOptions.getTouchables();
-        buttonLeave.setOnClickListener( view -> {
-          new MaterialAlertDialogBuilder(PlayGroundActivity.this)
-                  .setTitle(getResources().getString(R.string.dialog_title))
-                  .setMessage(R.string.round_exit_confirmation_msg)
-                  .setNeutralButton(getResources().getString(R.string.cancel), (dialogInterface, i) -> {
-                     dialogInterface.cancel();
-                  })
-                  .setPositiveButton("Yes", (dialogInterface, i) -> exitGameSession()).show();
-        });
+        buttonLeave.setOnClickListener( view -> new MaterialAlertDialogBuilder(PlayGroundActivity.this,
+                R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(R.string.dialog_title)
+                .setMessage(R.string.round_exit_confirmation_msg)
+                .setNeutralButton(R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel())
+                .setPositiveButton("Yes", (dialogInterface, i) -> goBackToMenu())
+                .show());
     }
 
     CountDownTimer setupProblemCountDown() {
@@ -230,6 +230,23 @@ public class PlayGroundActivity extends AppCompatActivity {
     }
 
     private void exitGameSession() {
+        new MaterialAlertDialogBuilder(PlayGroundActivity.this,R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(R.string.dialog_title_lose)
+                .setMessage(R.string.dialog_lose_message)
+                .setPositiveButton(R.string.play_again,(dialogInterface, i) -> {
+                    Intent intentBackMenu = new Intent(PlayGroundActivity.this, PlayGroundActivity.class);
+                    startActivity(intentBackMenu);
+                    finish();
+                })
+                .setNeutralButton("Leave",(dialogInterface, i) ->{
+                    goBackToMenu();
+                })
+                .setCancelable(false)
+                .show();
+
+    }
+
+    private void goBackToMenu() {
         Intent intentBackMenu = new Intent(PlayGroundActivity.this, MenuActivity.class);
         startActivity(intentBackMenu);
         finish();
